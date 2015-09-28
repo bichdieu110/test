@@ -1,0 +1,228 @@
+@import "../base/_valiables_mixins.scss";
+
+/* ----------------------------------------
+ 	layout
+ ---------------------------------------- */
+
+body {
+	background: #ececec image-url("body_bg.png") repeat center top;
+}
+
+
+/* ヘッダ
+------------------------------ */
+#global-header {
+	position: relative;
+	z-index: 10;
+	width: 100%;
+	height: 64px;
+	background: #fff;
+	@include box-shadow($box-shadow-01);
+
+	.container {
+		padding: 0 28px 0 46px;
+		@include clearfix;
+	}
+	.logo {
+		float: left;
+		padding: 12px 0 13px 0;
+
+		a {
+			@include hover-op;
+		}
+	}
+	.account-menu {
+		float: right;
+		padding: 0 0 0 24px;
+
+		.logout {
+			float: left;
+			padding: 18px 0 0 0;
+
+			a.btn-logout {
+				display: inline-block;
+				padding: 0 15px 0 37px;
+				border-radius: 2px;
+				color: #fff;
+				font-size: 12px;
+				line-height: 27px;
+				background: $color-point image-url("ico_logout.png") no-repeat 12px center;
+				@include hover-op;
+			}
+		}
+		.user {
+			float: right;
+			padding: 11px 0 0 12px;
+
+			a {
+				display: block;
+				width: 40px;
+				height: 40px;
+				overflow: hidden;
+				border: 2px solid $color-point;
+				border-radius: 50%;
+				background: no-repeat center center;
+				@include backgroundsize(40px auto);
+				@include hover-op;
+			}
+		}
+	}
+	.utility-nav {
+		float: right;
+		padding: 26px 0;
+
+		ul {
+			li {
+				float: left;
+				padding: 0 8px;
+				border-left: 2px solid #d1d1d1;
+				font-size: 12px;
+				line-height: 12px;
+
+				&:first-child {
+					border-left-width: 0;
+				}
+
+				a {
+					color: #000;
+
+					&:hover {
+						color: $color-point;
+					}
+				}
+			}
+		}
+	}
+}
+
+/* body
+------------------------------ */
+#body {
+	position: relative;
+	z-index: 1;
+	@include clearfix;
+	width: 100%;
+	min-height: 100%;
+	margin: 30px 0 0 0;
+	padding: 0 0 60px 46px;
+
+	&.side-open {
+		padding-left: 200px;
+	}
+}
+
+/* side
+------------------------------ */
+#side {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 46px;
+	min-height: 100%;
+	border-radius: 2px;
+	overflow: hidden;
+	background: $color-bg-darkgray;
+	color: #fff;
+	@include transition(.2s ease);
+
+	.side-open & {
+		width: 200px;
+	}
+	.side-fixed & {
+		position: fixed;
+	}
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: block;
+		width: 46px;
+		height: 100%;
+		background: $color-point;
+	}
+
+	.close {
+		position: absolute;
+		top: 13px;
+		right: 10px;
+		width: 26px;
+		height: 26px;
+
+		.btn-close {
+			display: block;
+			height: 26px;
+			background: image-url("side_btn_close.png") no-repeat center center;
+			@include hover-op;
+			@include opacity(0);
+
+			.side-open & {
+				@include opacity(1);
+			}
+		}
+	}
+}
+#side-nav {
+	position: relative;
+	width: 200px;
+	margin: 60px 0 0 46px;
+
+	a {
+		display: block;
+		color: #fff;
+		@include hover-op;
+	}
+
+	> ul > li {
+		position: relative;
+		padding: 7px 0 13px 0;
+		border-top: 1px dotted #8f8f8f;
+		font-size: 14px;
+		line-height: 22px;
+		font-weight: bold;
+
+		&:first-child {
+			border-top-width: 0;
+		}
+
+		a {
+			padding: 6px 6px 6px 14px;
+		}
+
+		span.ico {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 6px;
+			left: -46px;
+			width: 46px;
+			text-align: center;
+		}
+	}
+
+	.children {
+		padding: 0 0 0 14px;
+
+		li {
+			font-size: 12px;
+			line-height: 16px;
+
+			a {
+				padding: 5px 0px;
+
+				&:before {
+					content: '-';
+					display: inline;
+					margin: 0 4px 0 0;
+				}
+			}
+		}
+	}
+}
+
+/* main
+------------------------------ */
+#main {
+	padding: 0 28px;
+}

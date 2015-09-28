@@ -1,0 +1,400 @@
+@import "../base/_valiables_mixins.scss";
+
+/* ----------------------------------------
+ 	parts
+ ---------------------------------------- */
+
+.ui-widget {
+	font-family: $base-font-family;
+}
+.ui-corner-all {
+	border-radius: 2px;
+}
+.ui-widget-content a {
+	color: inherit;
+}
+
+ul.horizontal {
+	li {
+		display: inline-block;
+		vertical-align: top;
+		padding-right: 12px;
+	}
+}
+
+.btn-primary {
+	@include btn-primary;
+}
+.btn-secondary {
+	@include btn-secondary;
+}
+
+span.switch-check {
+	display: inline-block;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.heading-01 {
+	background: $color-bg-darkgray;
+	border-radius: 2px;
+	color: #fff;
+	padding: 12px 28px 12px 28px;
+	font-size: 16px;
+	line-height: 22px;
+	font-weight: bold;
+}
+
+.heading-02 {
+	margin-top: 20px;
+	padding: 5px 12px;
+	background: $color-point;
+	border-radius: 2px;
+	color: #fff;
+	font-size: 14px;
+	line-height: 22px;
+}
+
+.heading-03 {
+	font-size: 18px;
+	line-height: 24px;
+	font-weight: bold;
+}
+
+.panel-heading-01 {
+	padding: 3px 10px;
+	background: $color-point;
+	text-align: center;
+	color: #fff;
+	font-size: 14px;
+	line-height: 22px;
+}
+
+.content-head {
+	padding: 22px 28px;
+	border-bottom: 1px solid $color-bg-lightgray;
+}
+.content-body {
+	padding: 25px 28px 40px;
+}
+
+.content-editable {
+	font-size: 14px;
+	line-height: 22px;
+
+	p {
+		margin-bottom: 22px;
+	}
+	ul, ol {
+		margin-bottom: 22px;
+	}
+	ul {
+		li {
+			padding: 0 0 0 1em;
+			text-indent: -1em;
+
+			&:before {
+				content: '・';
+			}
+		}
+	}
+	ol {
+		li {
+			list-style: decimal;
+			margin: 0 0 0 1.75em;
+		}
+	}
+	h3, h4 {
+		margin: 33px 0 11px;
+		font-weight: bold;
+	}
+}
+
+.panel {
+	margin: 20px 0 20px 0;
+	overflow: hidden;
+	background: #fff;
+	border-radius: 2px;
+	@include box-shadow($box-shadow-01);
+
+	.heading-01 + & {
+		margin: 14px 0 20px 0;
+	}
+	.heading-02 + & {
+		margin: 12px 0 20px 0;
+	}
+}
+
+.row {
+	@include clearfix;
+
+	.col-half {
+		float: left;
+		width: 50%;
+	}
+}
+
+.chart-container {
+	width: 90%;
+	height: 400px;
+	margin: 40px auto 20px;
+
+	.chart-wide {
+		max-width: 900px;
+	}
+	.chart-half {
+		max-width: 450px;
+	}
+}
+
+.list-head {
+	display: table;
+	width: 100%;
+	height: 46px;
+	background: $color-bg-darkgray;
+	border-radius: 2px;
+	color: #fff;
+
+	.list-heading {
+		display: table-cell;
+		vertical-align: middle;
+		@extend .heading-01;
+	}
+	.list-link {
+		display: table-cell;
+		vertical-align: middle;
+		width: 7.5em;
+		padding: 12px 18px 12px 0;
+		font-size: 14px;
+		line-height: 22px;
+
+		a {
+			color: #fff;
+			@include hover-op;
+
+			&:before {
+				content: '';
+				display: inline-block;
+				width: 8px;
+				height: 14px;
+				margin: -2px 5px 0 0;
+				background: image-url("arw_r_01_red.png") no-repeat;
+				vertical-align: middle;
+			}
+		}
+	}
+}
+
+.list-body {
+	ul {
+		padding: 0 0 2px 0;
+	}
+	li {
+		border-top: 1px dotted $color-bg-mediumgray;
+
+		&:first-child {
+			border-top-width: 0;
+		}
+
+		a {
+			display: block;
+			padding: 18px 28px;
+			color: $color-base-font;
+			font-size: 14px;
+			line-height: 22px;
+			@include hover-op;
+		}
+	}
+	.list-update {
+		li {
+			position: relative;
+		}
+		span {
+			display: inline-block;
+		}
+		.text {
+			padding-right: 110px;
+		}
+		.timestamp {
+			position: absolute;
+			top: 50%;
+			right: 25px;
+			height: 22px;
+			margin-top: -12px;
+			padding: 0 18px;
+			background: $color-bg-mediumgray;
+			border-radius: 12px;
+			color: #fff;
+			font-size: 14px;
+			line-height: 24px;
+		}
+	}
+	.list-info {
+		span {
+			display: inline-block;
+		}
+		.date {
+			float: left;
+			width: 6em; // 84px
+			margin: 0 1em 0 0;
+		}
+		.cat {
+			float: left;
+			width: 7em; // 84px
+			height: 20px;
+			margin: 1px 1em 0 0;
+		}
+		.text {
+			display: block;
+			margin: 0 0 0 14em;
+		}
+		.new {
+			vertical-align: middle;
+			margin: -2px 0 0 3px;
+			padding: 0 8px;
+			background: $color-point;
+			color: #fff;
+			font-size: 11px;
+			line-height: 18px;
+		}
+	}
+}
+.ico-cat {
+	display: inline-block;
+	width: 7em; // 84px
+	height: 20px;
+	padding: 0 0.5em;
+	background: $color-bg-mediumgray;
+	border-radius: 3px;
+	color: #fff;
+	font-size: 12px;
+	line-height: 20px;
+	text-align: center;
+}
+
+.ui-tabs {
+	margin: 20px 0 0 0;
+	padding: 0;
+	background: none;
+	border-width: 0;
+
+	.ui-tabs-nav {
+		padding: 0;
+		background: none;
+		border-width: 0;
+
+		li {
+			margin-right: 6px;
+			font-size: 16px;
+		}
+		.ui-tabs-anchor {
+			padding: .5em 1.5em;
+			// color: #fff;
+		}
+		.ui-state-default {
+			background: $color-bg-lightgray;
+			border-color: $color-bg-gray;
+		}
+		.ui-state-active {
+			background: #fff;
+			border-color: #fff;
+
+			.ui-tabs-anchor {
+				// color: $color-base-font;
+			}
+		}
+	}
+	.ui-tabs-panel {
+		padding: 0;
+		margin: 0;
+		background: #fff;
+		border-width: 0;
+	}
+	.tab-content-head {
+		.btns {
+			padding: 20px;
+			text-align: right;
+
+			li {
+				padding: 0 0 0 10px;
+			}
+		}
+	}
+	.tab-content-body {
+		padding: 0 20px 20px;
+	}
+}
+
+.accordion-section {
+	.accordion-header {
+		margin: 0 0 0 0;
+		padding: 7px 6px 6px;
+		background: $color-bg-lightgray;
+		border-radius: 0;
+		font-size: 12px;
+		line-height: 16px;
+		text-align: center;
+		border-width: 0;
+		border-top: 1px solid #fff;
+
+		.ui-accordion-header-icon {
+			display: none;
+		}
+
+		&:after {
+			content: '';
+			display: inline-block;
+			width: 14px;
+			height: 14px;
+			margin: -2px 0 0 6px;
+			background: image-url("arw_d_01.png") no-repeat center center;
+			vertical-align: middle;
+		}
+
+		&.ui-accordion-header-active {
+			&:after {
+				background-image: image-url("arw_u_01.png");
+			}
+		}
+	}
+
+	.accordion-content {
+		padding: 0;
+		border-width: 0;
+		border-radius: 0;
+
+		table {
+			border-radius: 0;
+		}
+	}
+}
+
+.paging {
+	text-align: center;
+
+	li {
+		display: inline-block;
+		margin: 0 5px;
+		font-size: 12px;
+		line-height: 20px;
+	}
+
+	a {
+		display: inline-block;
+		min-width: 20px;
+		padding: 0 3px;
+		background-color: $color-bg-mediumgray;
+		border-radius: 2px;
+		color: #fff;
+		@include hover-op;
+
+		&.current {
+			background-color: $color-point;
+		}
+	}
+
+	&.paging-bottom {
+		margin: 60px 0 0 0;
+	}
+}
+

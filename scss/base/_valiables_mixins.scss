@@ -1,0 +1,158 @@
+@import "compass";
+
+
+// base valiables ------------------------------
+$base-font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, sans-serif;
+$color-base-font: #000;
+$color-point: #d01f1f;
+$color-bg-palegray: #f8f8f8;
+$color-bg-lightgray: #e5e5e5;
+$color-bg-gray: #bbbbbb;
+$color-bg-mediumgray: #939393;
+$color-bg-darkgray: #59595b;
+$box-shadow-01: 0 2px 2px 0 rgba(92,92,92,0.1);
+
+
+// common mixins ------------------------------
+@mixin clearfix {
+	&:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+}
+
+@mixin fontsize($size: 12, $lineheight: 18, $base: 16) {
+	font-size: $size + px;
+	font-size: ($size / $base) * 1rem;
+	line-height: ceil($lineheight*1000 / $size) / 1000;
+}
+@mixin fontanti {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+@mixin fontlatin {
+	font-family: $font-latin;
+	font-weight: 300;
+	letter-spacing: 0.15em;
+}
+@mixin backgroundsize($w:auto, $h:auto){
+    -webkit-background-size: $w $h;
+    background-size: $w $h;
+}
+@mixin transition($options) {
+    -webkit-transition: ($options);
+    -moz-transition: ($options);
+    -ms-transition: ($options);
+    -o-transition: ($options);
+    transition: ($options);
+}
+@mixin hover-op {
+	@include transition(.2s opacity);
+
+	&:hover {
+		@include opacity(0.75);
+	}
+}
+
+@mixin sprite-bg-retina($name, $sprite-map, $sprite-img, $bg-size-w: auto) {
+    width: image-width(sprite-file($sprite-map, $name)) / 2;
+    height: 0;
+    overflow: hidden;
+    padding-top: image-height(sprite-file($sprite-map, $name)) / 2;
+    $ypos: round(nth(sprite-position($sprite-map, $name), 2) / 2);
+    background: $sprite-img no-repeat 0 $ypos;
+    @include backgroundsize($bg-size-w, auto);
+}
+
+@mixin sprite-bg($name, $sprite-map, $sprite-img) {
+    width: image-width(sprite-file($sprite-map, $name));
+    height: 0;
+    overflow: hidden;
+    padding-top: image-height(sprite-file($sprite-map, $name));
+    $ypos: nth(sprite-position($sprite-map, $name), 2);
+    background: $sprite-img no-repeat 0 $ypos;
+}
+
+@mixin sprite-bg-switch($name, $sprite-map, $sprite-img) {
+    $ypos: nth(sprite-position($sprite-map, $name), 2);
+    background: $sprite-img no-repeat 0 $ypos;
+}
+
+$replace: sprite-map("icon/*.png", $layout: smart);
+$replace-img: sprite-url($replace);
+$icon: sprite-map("icon/*.png", $spacing:100px);
+$icon-img: sprite-url($icon);
+@mixin sprite-background($name) {
+	width: image-width(sprite-file($replace, $name)) / 2;
+	height: image-height(sprite-file($replace, $name)) / 2;
+	$xpos: round(nth(sprite-position($replace, $name), 1) / 2);
+	$ypos: round(nth(sprite-position($replace, $name), 2) / 2);
+	background-image: $replace-img;
+	background-position: $xpos $ypos;
+	background-repeat:no-repeat;
+	$wbgz: image-width(sprite-path($replace)) / 2;
+	@include background-size($wbgz auto);
+}
+@mixin sprite-icon($name, $x: 0, $y: 0, $pl: 4) {
+	$xpos: round(nth(sprite-position($icon, $name), 1) / 2);
+	$ypos: round(nth(sprite-position($icon, $name), 2) / 2);
+	background-position: ($xpos + $x) ($ypos + $y);
+	$wbgz: image-width(sprite-path($icon)) / 2;
+	@include background-size($wbgz auto);
+	padding-left: (image-width(sprite-file($icon, $name)) / 2) + $pl;
+}
+
+
+@mixin coverWindow($pos: absolute) {
+	position: $pos;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+@mixin posCenter() {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+@mixin posCenterV() {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	margin: auto;
+}
+@mixin btn() {
+	display: inline-block;
+	min-width: 104px;
+	padding: 2px 10px 0;
+	border: none;
+	border-radius: 2px;
+	color: #fff;
+	font-size: 12px;
+	line-height: 28px;
+	font-weight: bold;
+	text-align: center;
+	background-color: $color-point;
+	@include box-shadow( 0 3px 0 0 #ab0000 );
+	@include hover-op;
+
+	.ui-widget & {
+		font-size: 12px;
+	}
+	.ui-widget-content & {
+		color: #fff;
+	}
+}
+@mixin btn-primary() {
+	@include btn;
+}
+@mixin btn-secondary() {
+	@include btn;
+	background-color: $color-bg-mediumgray;
+	@include box-shadow( 0 3px 0 0 #707071 );
+}

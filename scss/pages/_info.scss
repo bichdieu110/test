@@ -1,0 +1,21 @@
+@import "../base/_valiables_mixins.scss";
+
+/* ----------------------------------------
+ 	info
+ ---------------------------------------- */
+
+.info-heading {
+	@extend .heading-03;
+}
+.info-meta {
+	margin: 0 0 10px 0;
+
+	.date {
+		display: inline-block;
+		width: 6em; // 84px
+		margin: 0 0.5em 0 0;
+	}
+	.cat {
+		vertical-align: 1px;
+	}
+}

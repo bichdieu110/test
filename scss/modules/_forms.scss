@@ -1,0 +1,194 @@
+@import "../base/_valiables_mixins.scss";
+
+/* form
+ ------------------------------ */
+.form-footer {
+	margin: 30px 0 0 0;
+
+	.btns {
+		text-align: center;
+
+		li {
+			padding: 0 5px;
+		}
+	}
+}
+span.required {
+	color: $color-point;
+	font-size: 10px;
+	line-height: 10px;
+	vertical-align: top;
+}
+input {
+	width: 440px;
+	height: 28px;
+	padding: 3px 5px;
+	background-color: $color-bg-lightgray;
+	border: none;
+	border-radius: 2px;
+	box-shadow: none;
+
+	&.short {
+		width: 40px;
+	}
+	&:focus {
+		outline: 1px dotted $color-bg-lightgray;
+		border: none;
+		box-shadow: none;
+		background-color: $color-bg-palegray;
+	}
+}
+textarea {
+	width: 440px;
+	height: 100px;
+	padding: 3px 5px;
+	background-color: $color-bg-lightgray;
+	border: none;
+	border-radius: 2px;
+	box-shadow: none;
+
+	&:focus {
+		outline: 1px dotted $color-bg-lightgray;
+		border: none;
+		box-shadow: none;
+		background-color: $color-bg-palegray;
+	}
+}
+.select-wrap {
+	select {
+		width: 290px;
+		height: 28px;
+
+		&.short {
+			width: 70px;
+		}
+	}
+	.ui-selectmenu-button {
+		height: 28px;
+		background: $color-bg-lightgray;
+		border: none;
+
+		&:focus {
+			outline: 1px dotted $color-bg-lightgray;
+			border: none;
+			box-shadow: none;
+			background-color: $color-bg-palegray;
+		}
+		span.ui-icon {
+			top: 0;
+			right: 0;
+			width: 34px;
+			height: 28px;
+			margin-top: 0;
+			background: $color-point image-url("arw_ud_01.png") no-repeat center center;
+		}
+		span.ui-selectmenu-text {
+			padding-right: 40px;
+		}
+	}
+}
+.ui-menu {
+	border-color: $color-bg-lightgray;
+	font-size: 14px;
+	line-height: 22px;
+}
+.ui-menu .ui-state-focus {
+	border-color: $color-bg-lightgray;
+	background: $color-bg-palegray;
+}
+
+select.select2 {
+	width: 100%;
+}
+select.select2 + .select2-container--default {
+	.select2-selection--multiple {
+	    width: 100%;
+	    // height: 28px;
+	    padding: 1px 5px;
+	    background-color: #e5e5e5;
+	    border: none;
+	    -webkit-border-radius: 2px;
+	    -moz-border-radius: 2px;
+	    border-radius: 2px;
+
+	    .select2-selection__rendered {
+	    	padding: 0;
+	    }
+	    .select2-selection__choice {
+	        display: block;
+	        float: left;
+	        margin: 2px 2px 2px 0;
+	        background-color: $color-bg-mediumgray;
+	        color: #fff;
+	        padding: 3px 8px;
+	        -webkit-border-radius: 2px;
+	        -moz-border-radius: 2px;
+	        border-radius: 2px;
+
+	        .select2-selection__choice__remove {
+	            width: 15px;
+	            height: 0;
+	            overflow: hidden;
+	            display: block;
+	            float: left;
+	            margin-right: 3px;
+	            padding-top: 15px;
+	            background: transparent image-url("ico_x.png") no-repeat 0 3px;
+	        }
+	    }
+	    .select2-search--inline .select2-search__field {
+			height: auto;
+			margin-top: 2px;
+	    }
+	}
+}
+body .select2-container {
+	width: 100% !important;
+}
+body .select2-dropdown {
+	border-color: $color-bg-lightgray;
+	border-radius: 0 0 2px 2px;
+}
+body .select2-container--default .select2-results__option[aria-selected=true] {
+	background-color: $color-bg-mediumgray;
+	color: #fff;
+}
+body .select2-container--default .select2-results__option--highlighted[aria-selected] {
+	background-color: $color-point;
+}
+
+label.check-01 {
+	input {
+		display: none;
+
+		+ span {
+			display: inline-block;
+			padding: 2px 0 0 0;
+			cursor: pointer;
+
+			&:before {
+				content: '';
+				display: inline-block;
+				width: 22px;
+				height: 22px;
+				margin: -2px 7px 0 0;
+				border-radius: 50%;
+				background: $color-bg-lightgray image-url("ico_check_white.png") no-repeat center center;
+				vertical-align: middle;
+			}
+		}
+
+		&:checked {
+			+ span {
+				&:before {
+					background-color: $color-point;
+				}
+			}
+		}
+	}
+}
+
+.complete-msg {
+	padding: 40px;
+	text-align: center;
+}

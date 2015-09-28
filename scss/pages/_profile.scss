@@ -1,0 +1,322 @@
+@import "../base/_valiables_mixins.scss";
+
+/* ----------------------------------------
+ 	profile
+ ---------------------------------------- */
+.icon {
+    text-indent: -999em;
+    display: block;
+}
+.prof-img {
+    text-align: center;
+    padding: 25px 50px;
+    background-color: #f7f7f7;
+    float: left;
+    img{
+        width: 160px;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+    }
+}
+.prof-data{
+    float: left;
+    padding: 28px 40px 0px 40px;
+    .id{
+        @include fontsize(14,20);
+        padding: 0px;
+        @include clearfix;
+        .title{
+            display: block;
+           background-color: #f7f7f7;
+           float: left;
+           padding: 2px 12px;
+            -webkit-border-radius: 3px 0 0 3px;
+            -moz-border-radius: 3px 0 0 3px;
+            border-radius: 3px 0 0 3px;
+        }
+        .number{
+            display: block;
+            float: left;
+            background-color: #e5e5e5;
+            padding: 2px 8px;
+            -webkit-border-radius: 0 3px 3px 0;
+            -moz-border-radius: 0 3px 3px 0;
+            border-radius: 0 3px 3px 0;
+        }
+    }
+    .name{
+        @include fontsize(22,43);
+        vertical-align: bottom;
+        .kana{
+            @include fontsize(12,43);
+            vertical-align: bottom;
+        }
+    }
+    .div{
+        @include fontsize(12,10);
+        vertical-align: top;
+        margin-bottom: 10px;
+    }
+    .detail{
+        @include clearfix;
+        @include fontsize(12,20);
+        a{
+            color: #299bff;
+        }
+    }
+    $IconList: mail,tel,birth;
+    @each $Icon in $IconList{
+        .#{$Icon}{
+            float: left;
+            margin: 3px 10px 3px 0;
+            @include sprite-background(#{$Icon});
+        }
+    }
+}
+.panel{
+    .row{
+        display: block;
+        padding: 8px 0;
+    }
+    .option{
+        padding: 4px 0;
+    }
+    .charge{
+        margin: 0 10px 0 40px;
+        width: 180px;
+    }
+    .panel-content{
+        padding: 20px 30px;
+    }
+    .selectbtn{
+        background-color: $color-bg-mediumgray;
+        color: #fff;
+        width: 3rem;
+        height: 20px;
+        padding: 0;
+        margin-right: 20px;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+    }
+    table.side{
+        margin-bottom: 15px;
+        &.mt20{
+            margin-top: 20px;
+        }
+        @include clearfix;
+        th{
+            background-color: #fff;
+            color: #707071;
+            text-align: left;
+        }
+        td{
+            padding-top: 5px;
+            padding-right: 10px;
+            &.menu-cell{
+                width: 4%;
+            }
+            &.route{
+                width: 10%;
+            }
+            &.res{
+                width: 80%;
+            }
+            &.wait-cell{
+                width: 6%;
+            }
+            &.allow{
+                width: 80%;
+            }
+        }
+        .wait{
+            width: 50px;
+        }
+    }
+    .input{
+        cursor: text;
+    }
+    .tokenarea{
+        width: 100%;
+        height: 28px;
+        padding: 3px 5px;
+        background-color: #e5e5e5;
+        border: none;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+        .removable{
+            display: block;
+            float: left;
+            margin-right: 2px;
+            background-color: $color-bg-mediumgray;
+            color: #fff;
+            padding: 3px 8px;
+            -webkit-border-radius: 2px;
+            -moz-border-radius: 2px;
+            border-radius: 2px;
+            .remove{
+                width: 15px;
+                height: 15px;
+                display: block;
+                float: left;
+                margin-right: 3px;
+                background: transparent image-url("ico_x.png") no-repeat 0 3px;
+            }
+        }
+    }
+    $IconList: handle,trash;
+    @each $Icon in $IconList{
+        .#{$Icon}{
+            float: left;
+            margin: 3px 0;
+            @include sprite-background(#{$Icon});
+        }
+    }
+    .handle {
+        cursor: move;
+    }
+}
+.ttl{
+    @include fontsize(12,30);
+    margin: 10px 0;
+}
+.card{
+    width: 31.8%;
+    margin-right: 2.3%;
+    float:left;
+    position: relative;
+    background-color: #e3e3e3;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    // 背景画像の設定
+    @for $i from 0 through 8{
+        &.bg0#{$i + 1}{
+            background: transparent image-url('bg/bg0'#{$i +1}'.png') no-repeat 50% 50%;
+        }
+    }
+    &.third{
+        margin-right: 0;
+    }
+    .div{
+        position: absolute;
+        top:0;
+        left: 0;
+        right: 0;
+        padding: 3px;
+        .group{
+            @include fontsize(10,20);
+            margin: 3px 3px;
+            background-color: #707071;
+            color: #fff;
+            padding: 3px 11px;
+            -webkit-border-radius: 2px;
+            -moz-border-radius: 2px;
+            border-radius: 2px;
+            float: left;
+        }
+    }
+    .score{
+        border: solid 1px #fff;
+        width: 132px;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+        color: #fff;
+        margin: 75px auto 10px auto;
+        @include fontsize(31,38);
+        @include clearfix;
+        .value{
+            padding: 6px 7px;
+            text-align: center;
+            vertical-align: middle;
+            float: left;
+        }
+        .unit{
+            padding: 6px 3px;
+            border-left: solid 1px #fff;
+            display: block;
+            float: left;
+            @include fontsize(18,38);
+            text-align: center;
+            vertical-align: bottom;
+        }
+    }
+    .prof-img{
+        position: absolute;
+        top:32%;
+        left: 0%;
+        width: 100%;
+        padding: 0;
+        background-color: transparent;
+        z-index:3;
+        img{
+            width: 26%;
+            min-width:70px;
+            max-width: 130px;
+            border: solid 2px #fff;
+        }
+    }
+    .overlay{
+        background-color: #fff;
+        position: absolute;
+        bottom: 0;
+        top: 46%;
+        left: 0;
+        width: 100%;
+        z-index:1;
+        @include opacity(0.75);
+    }
+    .prof-data{
+        position: relative;
+        z-index:2;
+        width: 100%;
+        margin-top: 23%;
+        padding-bottom: 30px;
+        .id{
+            width: 100%;
+            position: absolute;
+            left:50%;
+            margin-left: -4.8rem;
+            .title{
+                background-color: #fff;
+            }
+            .number{
+                background-color: #f7f7f7;
+            }
+        }
+        .name{
+            text-align: center;
+            margin-top: 30px;
+            @include fontsize(22,30);
+            .kana{
+                display: block;
+                @include fontsize(10,12);
+            }
+        }
+        .div{
+            position: static;
+            text-align: center;
+            margin-top: 10px;
+        }
+    }
+    .del{
+        width: 25px;
+        height: 25px;
+        background: #fff;
+        position: absolute;
+        bottom:6px;
+        right:6px;
+        z-index: 4;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+    }
+    .trashbk{
+        margin: 5px 8px;
+        @include sprite-background(trashbk);
+    }
+}
